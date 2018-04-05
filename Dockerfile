@@ -3,14 +3,14 @@ FROM debian:9
 RUN apt-get clean
 
 RUN apt-get update
-RUN apt-get install wget curl apt-transport-https apache2 unzip
+RUN apt-get -y install wget curl apt-transport-https apache2 unzip
 
 RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 RUN echo "deb https://packages.sury.org/php/ stretch main" > /etc/apt/sources.list.d/php.list
 
 RUN apt-get update
 
-RUN apt-get install php7.1 php7.1-curl php7.1-gd php7.1-mbstring php7.1-imagick php7.1-mysql php7.1-xdebug php7.1-simplexml php7.1-zip php7.1-soap php7.1-apcu php-apcu-bc
+RUN apt-get -y install  php7.1 php7.1-curl php7.1-gd php7.1-mbstring php7.1-imagick php7.1-mysql php7.1-xdebug php7.1-simplexml php7.1-zip php7.1-soap php7.1-apcu php-apcu-bc
 
 #configure apache
 RUN ["bin/bash", "-c", "sed -i 's/AllowOverride None/AllowOverride All\\nSetEnvIf X-Forwarded-Proto https HTTPS=on/g' /etc/apache2/apache2.conf"]
