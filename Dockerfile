@@ -1,7 +1,5 @@
 FROM debian:9
 
-RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/sury.list
-
 RUN apt-get update
 RUN apt-get install -y wget curl apt-transport-https apache2 unzip
 
