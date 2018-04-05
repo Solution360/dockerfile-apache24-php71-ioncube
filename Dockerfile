@@ -2,7 +2,6 @@ FROM debian:9
 
 RUN apt-get clean
 
-
 RUN apt-get update
 RUN apt-get install wget curl apt-transport-https apache2 unzip
 
